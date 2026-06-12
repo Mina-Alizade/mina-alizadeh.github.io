@@ -350,8 +350,55 @@
   }
   footer span { color: var(--gold); }
 
+  /* ── PHOTO ── */
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 6px rgba(200,169,110,0.15);
+    display: block;
+    margin-bottom: 1.8rem;
+  }
+
   /* ── UTIL ── */
   .divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 2rem; }
+
+  /* ── BOOK CARD ── */
+  .book-card {
+    display: flex;
+    background: #fff;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    max-width: 600px;
+  }
+  .book-spine {
+    width: 8px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .book-content {
+    padding: 1.4rem 1.6rem;
+  }
+  .book-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .book-meta {
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+  }
+  .book-desc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
   /* ── PROFILES GRID ── */
   .profiles-grid {
@@ -404,7 +451,6 @@
   <a class="nav-name" href="#">Mina Alizadeh</a>
   <ul class="nav-links">
     <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
     <li><a href="#talks">Talks</a></li>
     <li><a href="#education">CV</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -416,6 +462,7 @@
   <div class="stars" id="stars"></div>
   <div class="hero-inner">
     <div>
+      <img class="hero-photo" src="https://mina-alizade.github.io/mina-alizadeh.github.io/photo.jpg" alt="Mina Alizadeh">
       <p class="hero-eyebrow">Observational Astronomy · Variable Stars · Galaxy Evolution</p>
       <h1 class="hero-name">Mina<br>Alizadeh</h1>
       <p class="hero-title">PhD Candidate in Astrophysics</p>
@@ -423,7 +470,7 @@
         I study the late-stage evolution of stars in the Triangulum Galaxy (M33) through near-infrared photometric monitoring. My research centres on long-period variable stars — AGB stars on the verge of shedding their envelopes — and their role in shaping the chemical and dust budget of galaxies.
       </p>
       <div class="hero-links">
-        <a href="#publications" class="btn btn-solid">Publications</a>
+        <a href="#talks" class="btn btn-solid">Talks & CV</a>
         <a href="mailto:minaalizadah@gmail.com" class="btn">Contact</a>
         <a href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" class="btn" target="_blank">Google Scholar</a>
         <a href="https://www.researchgate.net/profile/Mina-Alizadeh-11" class="btn" target="_blank">ResearchGate</a>
@@ -485,66 +532,6 @@
         <p class="rc-text">Characterising mass-loss rates and dusty outflows from evolved stars across M33's galactic disk. Colour diagnostics using JWST and Spitzer mid-infrared photometry to trace dust production as a function of stellar luminosity and pulsation amplitude.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="container">
-    <p class="section-label">Refereed & In Preparation</p>
-    <h2 class="section-title">Publications</h2>
-
-    <div class="pub-item">
-      <div class="pub-year">In prep.</div>
-      <div>
-        <span class="pub-badge prep">In Preparation</span>
-        <p class="pub-title">The UKIRT M33 Monitoring Project — Paper VII: PSF Photometry, Variability Analysis, and Catalogue of Long-Period Variables</p>
-        <p class="pub-authors"><strong>Alizadeh M.</strong>, Javadi A., van Loon J. T., et al.</p>
-        <p class="pub-journal">Monthly Notices of the Royal Astronomical Society (MNRAS)</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-year">In prep.</div>
-      <div>
-        <span class="pub-badge prep">In Preparation</span>
-        <p class="pub-title">The UK Infrared Telescope M33 Monitoring Project — VI. Feedback from Dusty Stellar Winds Across the Galactic Disk</p>
-        <p class="pub-authors"><strong>Alizadeh M.</strong>, Javadi A., van Loon J. T., et al.</p>
-        <p class="pub-journal">Monthly Notices of the Royal Astronomical Society (MNRAS)</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-year">2024</div>
-      <div>
-        <span class="pub-badge published">Published</span>
-        <p class="pub-title">A Deep Dive into Stellar Populations in M33's Central Region: Near-Infrared Observations and Analysis</p>
-        <p class="pub-authors"><strong>Alizadeh M.</strong></p>
-        <p class="pub-journal">Communications of the Byurakan Astrophysical Observatory (ComBAO)</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-year">2021</div>
-      <div>
-        <span class="pub-badge published">Published</span>
-        <p class="pub-title">The Isaac Newton Telescope Monitoring Survey of Local Group Dwarf Galaxies — III. The Star Formation History of Andromeda VII Derived from Long Period Variable Stars</p>
-        <p class="pub-authors">Javadi A., <strong>Alizadeh M.</strong>, van Loon J. T., et al.</p>
-        <p class="pub-journal">The Astronomical Journal (AAS)</p>
-        <a class="pub-link" href="https://arxiv.org/abs/2101.09900" target="_blank">arXiv →</a>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <div class="pub-year">2020</div>
-      <div>
-        <span class="pub-badge published">Published</span>
-        <p class="pub-title">Astronomy for Us <em>(کتاب: نجوم برای ما)</em></p>
-        <p class="pub-authors"><strong>Alizadeh M.</strong></p>
-        <p class="pub-journal">Book · ISBN: 978-622-71001-2</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -797,6 +784,19 @@
         <p style="color:var(--muted); font-size:0.88rem; line-height:1.8;">
           I am open to collaborations in observational astronomy, particularly on variable star populations, NIR photometry pipelines, and AGB evolution in nearby galaxies. I am also available for invited talks, summer school lectures, and educational outreach.
         </p>
+      </div>
+    </div>
+
+    <!-- BOOK -->
+    <div style="margin-top:3rem;">
+      <p class="section-label" style="margin-bottom:1.2rem;">Book</p>
+      <div class="book-card">
+        <div class="book-spine"></div>
+        <div class="book-content">
+          <div class="book-title">نجوم برای ما — Astronomy for Us</div>
+          <div class="book-meta">Mina Alizadeh · 2020 · ISBN: 978-622-71001-2</div>
+          <p class="book-desc">An introductory astronomy book in Persian, written to make observational astronomy and astrophysics accessible to students and the general public in Iran.</p>
+        </div>
       </div>
     </div>
 
