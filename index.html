@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mina Alizadeh — Astrophysicist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --deep: #0f0f1e;
+    --gold: #c8a96e;
+    --gold-light: #e8c98e;
+    --cream: #f5f0e8;
+    --muted: #8a8a9a;
+    --rule: #d4cfc5;
+    --section-bg: #fafaf7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,240,232,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    padding: 7rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* starfield */
+  .stars {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: var(--min); }
+    to   { opacity: var(--max); }
+  }
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 4rem;
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .hero-bio {
+    color: #aaa8b8;
+    max-width: 540px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-links {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.55rem 1.4rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn:hover { background: var(--gold); color: var(--deep); }
+  .btn-solid { background: var(--gold); color: var(--deep); }
+  .btn-solid:hover { background: var(--gold-light); }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,169,110,0.25);
+    padding: 2rem;
+  }
+  .hero-card-title {
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.4rem;
+  }
+  .affil-item {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    margin-bottom: 1.1rem; padding-bottom: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    color: #c0bece; font-size: 0.85rem; line-height: 1.5;
+  }
+  .affil-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .affil-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 0.55rem;
+  }
+  .affil-inst { color: #fff; font-size: 0.82rem; }
+  .affil-role { color: var(--muted); font-size: 0.78rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem; font-weight: 400;
+    color: var(--ink); margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .research-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 1.8rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .research-card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-color: var(--gold);
+  }
+  .rc-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .rc-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .rc-text { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: var(--section-bg); }
+  .pub-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-year {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem; color: var(--gold);
+    font-weight: 400; padding-top: 0.15rem;
+  }
+  .pub-badge {
+    display: inline-block;
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--rule);
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .pub-badge.published { border-color: #6aaa8a; color: #4a8a6a; }
+  .pub-badge.prep { border-color: #c8a96e; color: #9a7a3a; }
+  .pub-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem; color: var(--ink);
+    margin-bottom: 0.35rem; line-height: 1.4;
+  }
+  .pub-authors { color: var(--muted); font-size: 0.82rem; margin-bottom: 0.25rem; }
+  .pub-journal { color: var(--ink); font-size: 0.82rem; font-style: italic; }
+  .pub-link {
+    display: inline-block; margin-top: 0.5rem;
+    font-size: 0.75rem; letter-spacing: 0.08em;
+    color: var(--gold); text-decoration: none; text-transform: uppercase;
+  }
+  .pub-link:hover { text-decoration: underline; }
+
+  /* ── TALKS ── */
+  .talks-list { display: flex; flex-direction: column; gap: 1px; }
+  .talk-item {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    background: #fff;
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .talk-item:hover { border-left-color: var(--gold); }
+  .talk-year { color: var(--muted); font-size: 0.82rem; }
+  .talk-title { font-size: 0.9rem; color: var(--ink); }
+  .talk-venue { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+  .talk-type {
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; background: var(--cream);
+    color: var(--muted); white-space: nowrap;
+  }
+
+  /* ── CV / EDUCATION ── */
+  #education { background: var(--section-bg); }
+  .edu-item {
+    display: grid; grid-template-columns: 1fr 200px;
+    gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-degree {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem; color: var(--ink); margin-bottom: 0.3rem;
+  }
+  .edu-inst { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
+  .edu-thesis { font-style: italic; font-size: 0.84rem; color: var(--ink); }
+  .edu-supervisors { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+  .edu-year {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem; color: var(--muted); text-align: right;
+  }
+
+  /* ── SCHOOLS ── */
+  .schools-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  }
+  .school-item {
+    background: #fff; border: 1px solid var(--rule);
+    padding: 1.2rem 1.4rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .school-year-box {
+    background: var(--cream); border: 1px solid var(--rule);
+    min-width: 52px; text-align: center; padding: 0.3rem 0;
+    font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .school-name { font-size: 0.88rem; color: var(--ink); margin-bottom: 0.15rem; }
+  .school-place { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── AWARDS ── */
+  .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+  .award-item {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--rule);
+  }
+  .award-item:last-child { border-bottom: none; }
+  .award-icon { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 0.2rem; }
+  .award-text { font-size: 0.88rem; color: var(--ink); }
+  .award-year { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--section-bg); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .skill-group-title {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .skill-tag {
+    display: inline-block; padding: 0.25rem 0.8rem;
+    background: #fff; border: 1px solid var(--rule);
+    font-size: 0.8rem; color: var(--ink);
+    margin: 0.2rem 0.2rem 0 0;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; }
+  .contact-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+  .contact-val { font-size: 0.9rem; color: var(--ink); }
+  .contact-val a { color: var(--gold); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep); color: #555566;
+    text-align: center; padding: 2rem;
+    font-size: 0.78rem; letter-spacing: 0.06em;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── UTIL ── */
+  .divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 2rem; }
+
+  /* ── PROFILES GRID ── */
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.3rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .profile-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .profile-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .profile-name { font-size: 0.88rem; color: var(--ink); font-weight: 500; }
+  .profile-desc { font-size: 0.76rem; color: var(--muted); margin-top: 0.1rem; }
+  .profile-arrow { margin-left: auto; color: var(--gold); font-size: 0.9rem; flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-card { display: none; }
+    .container { padding: 0 1.5rem; }
+    .research-grid { grid-template-columns: 1fr; }
+    .pub-item { grid-template-columns: 60px 1fr; }
+    .talk-item { grid-template-columns: 80px 1fr; }
+    .talk-type { display: none; }
+    .edu-item { grid-template-columns: 1fr; }
+    .edu-year { text-align: left; }
+    .schools-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .profiles-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Mina Alizadeh</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#education">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="stars" id="stars"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Observational Astronomy · Variable Stars · Galaxy Evolution</p>
+      <h1 class="hero-name">Mina<br>Alizadeh</h1>
+      <p class="hero-title">PhD Candidate in Astrophysics</p>
+      <p class="hero-bio">
+        I study the late-stage evolution of stars in the Triangulum Galaxy (M33) through near-infrared photometric monitoring. My research centres on long-period variable stars — AGB stars on the verge of shedding their envelopes — and their role in shaping the chemical and dust budget of galaxies.
+      </p>
+      <div class="hero-links">
+        <a href="#publications" class="btn btn-solid">Publications</a>
+        <a href="mailto:minaalizadah@gmail.com" class="btn">Contact</a>
+        <a href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" class="btn" target="_blank">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Mina-Alizadeh-11" class="btn" target="_blank">ResearchGate</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <p class="hero-card-title">Affiliations</p>
+      <div class="affil-item">
+        <div class="affil-dot"></div>
+        <div>
+          <div class="affil-inst">University of Zanjan</div>
+          <div class="affil-role">PhD Candidate, Department of Physics</div>
+        </div>
+      </div>
+      <div class="affil-item">
+        <div class="affil-dot"></div>
+        <div>
+          <div class="affil-inst">IPM Tehran</div>
+          <div class="affil-role">Research Assistant, School of Astronomy</div>
+        </div>
+      </div>
+      <div class="affil-item">
+        <div class="affil-dot"></div>
+        <div>
+          <div class="affil-inst">Keele University</div>
+          <div class="affil-role">Affiliated Researcher</div>
+        </div>
+      </div>
+      <div class="affil-item">
+        <div class="affil-dot"></div>
+        <div>
+          <div class="affil-inst">Asareh Astronomy Institute</div>
+          <div class="affil-role">Founder & Director</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Areas of Focus</p>
+    <h2 class="section-title">Research</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="rc-icon">🔭</div>
+        <h3 class="rc-title">Variable Stars & AGB Evolution</h3>
+        <p class="rc-text">Long-period variable (LPV) and AGB stars in M33, studied through 15-year UKIRT multi-epoch NIR photometry spanning 2003–2018. Variability characterisation using GLS periodograms, RMS-based detection, and Gaussian Process modelling.</p>
+      </div>
+      <div class="research-card">
+        <div class="rc-icon">🌌</div>
+        <h3 class="rc-title">Stellar Populations in M33</h3>
+        <p class="rc-text">Constructing a homogenised multi-instrument catalogue of 847 variable stars across UIST, UFTI, WFCAM, and UHS epochs. PSF photometry with Photutils, cross-matched against OGLE, ASAS-SN, Spitzer, and JWST archives.</p>
+      </div>
+      <div class="research-card">
+        <div class="rc-icon">💨</div>
+        <h3 class="rc-title">Dust & Stellar Winds</h3>
+        <p class="rc-text">Characterising mass-loss rates and dusty outflows from evolved stars across M33's galactic disk. Colour diagnostics using JWST and Spitzer mid-infrared photometry to trace dust production as a function of stellar luminosity and pulsation amplitude.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label">Refereed & In Preparation</p>
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-item">
+      <div class="pub-year">In prep.</div>
+      <div>
+        <span class="pub-badge prep">In Preparation</span>
+        <p class="pub-title">The UKIRT M33 Monitoring Project — Paper VII: PSF Photometry, Variability Analysis, and Catalogue of Long-Period Variables</p>
+        <p class="pub-authors"><strong>Alizadeh M.</strong>, Javadi A., van Loon J. T., et al.</p>
+        <p class="pub-journal">Monthly Notices of the Royal Astronomical Society (MNRAS)</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">In prep.</div>
+      <div>
+        <span class="pub-badge prep">In Preparation</span>
+        <p class="pub-title">The UK Infrared Telescope M33 Monitoring Project — VI. Feedback from Dusty Stellar Winds Across the Galactic Disk</p>
+        <p class="pub-authors"><strong>Alizadeh M.</strong>, Javadi A., van Loon J. T., et al.</p>
+        <p class="pub-journal">Monthly Notices of the Royal Astronomical Society (MNRAS)</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div>
+        <span class="pub-badge published">Published</span>
+        <p class="pub-title">A Deep Dive into Stellar Populations in M33's Central Region: Near-Infrared Observations and Analysis</p>
+        <p class="pub-authors"><strong>Alizadeh M.</strong></p>
+        <p class="pub-journal">Communications of the Byurakan Astrophysical Observatory (ComBAO)</p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2021</div>
+      <div>
+        <span class="pub-badge published">Published</span>
+        <p class="pub-title">The Isaac Newton Telescope Monitoring Survey of Local Group Dwarf Galaxies — III. The Star Formation History of Andromeda VII Derived from Long Period Variable Stars</p>
+        <p class="pub-authors">Javadi A., <strong>Alizadeh M.</strong>, van Loon J. T., et al.</p>
+        <p class="pub-journal">The Astronomical Journal (AAS)</p>
+        <a class="pub-link" href="https://arxiv.org/abs/2101.09900" target="_blank">arXiv →</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2020</div>
+      <div>
+        <span class="pub-badge published">Published</span>
+        <p class="pub-title">Astronomy for Us <em>(کتاب: نجوم برای ما)</em></p>
+        <p class="pub-authors"><strong>Alizadeh M.</strong></p>
+        <p class="pub-journal">Book · ISBN: 978-622-71001-2</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="container">
+    <p class="section-label">Invited & Contributed</p>
+    <h2 class="section-title">Presentations</h2>
+    <div class="talks-list">
+
+      <div class="talk-item">
+        <div class="talk-year">Nov 2025</div>
+        <div>
+          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
+          <div class="talk-venue">MYRAM 7 Conference · Amman, Jordan</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Sep 2025</div>
+        <div>
+          <div class="talk-title">LPVs and Dust in M33: Multi-Epoch NIR Photometry</div>
+          <div class="talk-venue">BAO International Symposium (BAO-80) · Byurakan, Armenia</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Sep 2025</div>
+        <div>
+          <div class="talk-title">Near-Infrared Variable Star Survey of M33</div>
+          <div class="talk-venue">10th Byurakan International Summer School (10BISS) · Armenia</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Sep 2024</div>
+        <div>
+          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region: Unveiling Final-Stage Evolution Through Near-Infrared Survey</div>
+          <div class="talk-venue">9th Byurakan International Summer School (9BISS) · Armenia</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Aug 2024</div>
+        <div>
+          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
+          <div class="talk-venue">IAU General Assembly 2024 · Cape Town, South Africa</div>
+        </div>
+        <div class="talk-type">Poster</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Jul 2024</div>
+        <div>
+          <div class="talk-title">M33 Central Region: Near-Infrared Observations and Analysis</div>
+          <div class="talk-venue">EAS Annual Meeting 2024 · Padova, Italy (Virtual)</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">May 2024</div>
+        <div>
+          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
+          <div class="talk-venue">31st IPM Physics Spring Conference · Tehran, Iran</div>
+        </div>
+        <div class="talk-type">Poster</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2015</div>
+        <div>
+          <div class="talk-title">Star Formation in M31</div>
+          <div class="talk-venue">STEEL PhD School · Erice, Italy</div>
+        </div>
+        <div class="talk-type">Talk</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION + SCHOOLS -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">PhD in Astrophysics</div>
+        <div class="edu-inst">University of Zanjan & Institute for Research in Fundamental Sciences (IPM), Tehran, Iran · Affiliated with Keele University, UK</div>
+        <div class="edu-thesis">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
+        <div class="edu-supervisors">Supervisors: Prof. Jacco van Loon (Keele) · Dr. Atefeh Javadi (IPM) · Dr. Y. A. Abedini (Zanjan)</div>
+      </div>
+      <div class="edu-year">2021 – present</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">MSc in Physics — Astronomy & Cosmology</div>
+        <div class="edu-inst">Zanjan University / Kharazmi University / IPM, Tehran</div>
+        <div class="edu-thesis">Inflationary Models in Cosmology and Structure Formation in the Early Universe</div>
+        <div class="edu-supervisors">Supervisors: Dr. Y. A. Abedini · Dr. S. Khosravi</div>
+      </div>
+      <div class="edu-year">2011 – 2013</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">BSc in Physics</div>
+        <div class="edu-inst">Zanjan University, Zanjan, Iran</div>
+        <div class="edu-thesis">Measurements of the Atmosphere Layer Ionosphere</div>
+      </div>
+      <div class="edu-year">2007 – 2011</div>
+    </div>
+
+    <br><br>
+    <p class="section-label">Training</p>
+    <h2 class="section-title" style="margin-bottom:2rem;">Schools & Workshops</h2>
+    <div class="schools-grid">
+      <div class="school-item"><div class="school-year-box">2025</div><div><div class="school-name">LOC Member — 4th Byurakan Regional Astronomical Summer School (4RASS) & ASBD-3 Symposium</div><div class="school-place">Byurakan Astrophysical Observatory, Armenia</div></div></div>
+      <div class="school-item"><div class="school-year-box">2024</div><div><div class="school-name">9th Byurakan International Summer School (9BISS)</div><div class="school-place">Byurakan Astrophysical Observatory, Armenia</div></div></div>
+      <div class="school-item"><div class="school-year-box">2024</div><div><div class="school-name">SWCA ROAD International Workshop</div><div class="school-place">Byurakan Astrophysical Observatory, Armenia</div></div></div>
+      <div class="school-item"><div class="school-year-box">2023</div><div><div class="school-name">III Regional Astronomical Summer School (3RASS)</div><div class="school-place">Byurakan Astrophysical Observatory, Armenia</div></div></div>
+      <div class="school-item"><div class="school-year-box">2015</div><div><div class="school-name">STEEL PhD School in Observational Astrophysics</div><div class="school-place">Ettore Majorana Foundation, Erice, Italy</div></div></div>
+      <div class="school-item"><div class="school-year-box">2014</div><div><div class="school-name">Python & AstroPy Workshop (AstroML, Machine Learning, FITS)</div><div class="school-place">IPM School of Astronomy, Tehran</div></div></div>
+      <div class="school-item"><div class="school-year-box">2014</div><div><div class="school-name">Galaxy Workshop I & II</div><div class="school-place">IPM, Tehran, Iran</div></div></div>
+      <div class="school-item"><div class="school-year-box">2013</div><div><div class="school-name">Observational Astronomy Summer School</div><div class="school-place">IPM, Tehran, Iran</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Honours & Awards</h2>
+    <div class="awards-list">
+      <div class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <div class="award-text">Top PhD Student — University of Zanjan</div>
+          <div class="award-year">2021 – 2024</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <div class="award-text">Outstanding Young Researcher — Alborz Province Governorate</div>
+          <div class="award-year">2022</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <div class="award-text">Top MSc Student, ranked 2nd in Physics — Zanjan University</div>
+          <div class="award-year">2011 – 2014</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <div class="award-text">1st Place — National Physics Day Competition, Isfahan University of Technology</div>
+          <div class="award-year">2010</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">★</div>
+        <div>
+          <div class="award-text">Selected — 9th National Messier Marathon Competition, South Khorasan Province</div>
+          <div class="award-year">2009</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Technical</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <p class="skill-group-title">Programming & Data Analysis</p>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Astropy</span>
+        <span class="skill-tag">Photutils</span>
+        <span class="skill-tag">NumPy / SciPy</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Bash / Linux</span>
+        <span class="skill-tag">LaTeX</span>
+      </div>
+      <div>
+        <p class="skill-group-title">Astronomy Software</p>
+        <span class="skill-tag">TOPCAT</span>
+        <span class="skill-tag">DS9</span>
+        <span class="skill-tag">Aladin</span>
+        <span class="skill-tag">SCAMP</span>
+        <span class="skill-tag">DAOPHOT</span>
+        <span class="skill-tag">GLS Periodograms</span>
+        <span class="skill-tag">Gaussian Processes</span>
+      </div>
+      <div>
+        <p class="skill-group-title">Languages</p>
+        <span class="skill-tag">Persian (Native)</span>
+        <span class="skill-tag">Kurdish (Native)</span>
+        <span class="skill-tag">English (Advanced)</span>
+        <span class="skill-tag">Arabic (Reading)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:minaalizadah@gmail.com">minaalizadah@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div>
+            <div class="contact-label">Primary Affiliation</div>
+            <div class="contact-val">
+              <a href="https://astro.ipm.ac.ir/research/research_feng_team.jsp" target="_blank">School of Astronomy, IPM Tehran →</a><br>
+              University of Zanjan, Iran
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div>
+            <div class="contact-label">Outreach &amp; Education</div>
+            <div class="contact-val"><a href="https://asaregroup.ir" target="_blank">Asareh Astronomy Institute →</a></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--muted); font-size:0.88rem; line-height:1.8;">
+          I am open to collaborations in observational astronomy, particularly on variable star populations, NIR photometry pipelines, and AGB evolution in nearby galaxies. I am also available for invited talks, summer school lectures, and educational outreach.
+        </p>
+      </div>
+    </div>
+
+    <!-- PROFILES GRID -->
+    <div style="margin-top:3rem;">
+      <p class="section-label" style="margin-bottom:1.2rem;">Academic Profiles &amp; Networks</p>
+      <div class="profiles-grid">
+
+        <a class="profile-card" href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" target="_blank">
+          <div class="profile-icon">🎓</div>
+          <div>
+            <div class="profile-name">Google Scholar</div>
+            <div class="profile-desc">Citations &amp; publication record</div>
+          </div>
+          <div class="profile-arrow">→</div>
+        </a>
+
+        <a class="profile-card" href="https://www.researchgate.net/profile/Mina-Alizadeh-11" target="_blank">
+          <div class="profile-icon">🔬</div>
+          <div>
+            <div class="profile-name">ResearchGate</div>
+            <div class="profile-desc">Papers &amp; research network</div>
+          </div>
+          <div class="profile-arrow">→</div>
+        </a>
+
+        <a class="profile-card" href="https://astro.ipm.ac.ir/research/research_feng_team.jsp" target="_blank">
+          <div class="profile-icon">🏛️</div>
+          <div>
+            <div class="profile-name">IPM Tehran</div>
+            <div class="profile-desc">School of Astronomy profile</div>
+          </div>
+          <div class="profile-arrow">→</div>
+        </a>
+
+        <a class="profile-card" href="https://asaregroup.ir" target="_blank">
+          <div class="profile-icon">🌟</div>
+          <div>
+            <div class="profile-name">Asareh Institute</div>
+            <div class="profile-desc">Astronomy education &amp; outreach</div>
+          </div>
+          <div class="profile-arrow">→</div>
+        </a>
+
+        <a class="profile-card" href="https://www.imo.net/members/imo_user/profile/?user_id=7811" target="_blank">
+          <div class="profile-icon">☄️</div>
+          <div>
+            <div class="profile-name">IMO Network</div>
+            <div class="profile-desc">Meteor shower observations</div>
+          </div>
+          <div class="profile-arrow">→</div>
+        </a>
+
+        <a class="profile-card" href="https://github.com" target="_blank" style="opacity:0.55; pointer-events:none; cursor:default;">
+          <div class="profile-icon">💻</div>
+          <div>
+            <div class="profile-name">GitHub</div>
+            <div class="profile-desc">Coming soon</div>
+          </div>
+          <div class="profile-arrow" style="opacity:0">→</div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2025 <span>Mina Alizadeh</span> · Astrophysicist · IPM Tehran & University of Zanjan
+</footer>
+
+<script>
+// Generate starfield
+const starsEl = document.getElementById('stars');
+const count = 180;
+for (let i = 0; i < count; i++) {
+  const s = document.createElement('div');
+  s.classList.add('star');
+  const size = Math.random() * 2 + 0.5;
+  const minO = (Math.random() * 0.2 + 0.05).toFixed(2);
+  const maxO = (Math.random() * 0.5 + 0.3).toFixed(2);
+  const dur = (Math.random() * 4 + 2).toFixed(1) + 's';
+  s.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    --min:${minO}; --max:${maxO}; --d:${dur};
+    animation-delay:${(Math.random()*4).toFixed(1)}s;
+  `;
+  starsEl.appendChild(s);
+}
+
+// Smooth nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--gold)' : '';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
