@@ -107,11 +107,12 @@
 
   .hero-name {
     font-family: 'EB Garamond', serif;
-    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
     color: #fff;
     line-height: 1.1;
     margin-bottom: 1rem;
+    white-space: nowrap;
   }
 
   .hero-title {
@@ -363,6 +364,48 @@
     margin-bottom: 1.8rem;
   }
 
+  /* ── PHOTO ── */
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 6px rgba(200,169,110,0.15);
+    flex-shrink: 0;
+  }
+
+  /* ── HERO AFFIL GRID ── */
+  .hero-affil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1rem 0 1.2rem;
+  }
+  .hero-affil-card {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 0.8rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,169,110,0.2);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .hero-affil-card:hover { border-color: var(--gold); }
+  .hac-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .hac-name { font-size: 0.75rem; color: #fff; font-weight: 500; }
+  .hac-role { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+  .hac-arrow { margin-left: auto; color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
+  .hac-book { border-color: rgba(200,169,110,0.5) !important; background: rgba(200,169,110,0.08) !important; }
+
   /* ── UTIL ── */
   .divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 2rem; }
 
@@ -430,6 +473,9 @@
     .nav-links { gap: 1rem; }
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
     .hero-card { display: none; }
+    .hero-top { gap: 1.2rem; }
+    .hero-photo { width: 90px; height: 90px; }
+    .hero-name { white-space: normal; font-size: 1.8rem; }
     .container { padding: 0 1.5rem; }
     .research-grid { grid-template-columns: 1fr; }
     .pub-item { grid-template-columns: 60px 1fr; }
@@ -462,18 +508,67 @@
   <div class="stars" id="stars"></div>
   <div class="hero-inner">
     <div>
-      <img class="hero-photo" src="https://mina-alizade.github.io/mina-alizadeh.github.io/photo.jpg" alt="Mina Alizadeh">
-      <p class="hero-eyebrow">Observational Astronomy · Variable Stars · Galaxy Evolution</p>
-      <h1 class="hero-name">Mina<br>Alizadeh</h1>
-      <p class="hero-title">PhD Candidate in Astrophysics</p>
+      <div class="hero-top">
+        <img class="hero-photo" src="https://mina-alizade.github.io/mina-alizadeh.github.io/photo.jpg" alt="Mina Alizadeh">
+        <div>
+          <p class="hero-eyebrow">Observational Astronomy · Variable Stars · Galaxy Evolution</p>
+          <h1 class="hero-name">Mina Alizadeh</h1>
+          <p class="hero-title">PhD Candidate in Astrophysics</p>
+        </div>
+      </div>
       <p class="hero-bio">
         I study the late-stage evolution of stars in the Triangulum Galaxy (M33) through near-infrared photometric monitoring. My research centres on long-period variable stars — AGB stars on the verge of shedding their envelopes — and their role in shaping the chemical and dust budget of galaxies.
       </p>
-      <div class="hero-links">
-        <a href="#talks" class="btn btn-solid">Talks & CV</a>
-        <a href="mailto:minaalizadah@gmail.com" class="btn">Contact</a>
-        <a href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" class="btn" target="_blank">Google Scholar</a>
-        <a href="https://www.researchgate.net/profile/Mina-Alizadeh-11" class="btn" target="_blank">ResearchGate</a>
+      <!-- Unified 10-card grid -->
+      <div class="hero-affil-grid">
+        <a class="hero-affil-card" href="https://astro.ipm.ac.ir/research/research_feng_team.jsp" target="_blank">
+          <span class="hac-icon">🏛️</span>
+          <div><div class="hac-name">IPM Tehran</div><div class="hac-role">School of Astronomy</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="https://www.imo.net/members/imo_user/profile/?user_id=7811" target="_blank">
+          <span class="hac-icon">☄️</span>
+          <div><div class="hac-name">IMO Network</div><div class="hac-role">Meteor observations</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" target="_blank">
+          <span class="hac-icon">🎓</span>
+          <div><div class="hac-name">Google Scholar</div><div class="hac-role">Citations & publications</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="https://www.researchgate.net/profile/Mina-Alizadeh-11" target="_blank">
+          <span class="hac-icon">🔬</span>
+          <div><div class="hac-name">ResearchGate</div><div class="hac-role">Papers & network</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="#talks">
+          <span class="hac-icon">🗣️</span>
+          <div><div class="hac-name">Talks & CV</div><div class="hac-role">Presentations & education</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="mailto:minaalizadah@gmail.com">
+          <span class="hac-icon">✉️</span>
+          <div><div class="hac-name">Contact</div><div class="hac-role">minaalizadah@gmail.com</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" href="https://asaregroup.ir" target="_blank">
+          <span class="hac-icon">⭐</span>
+          <div><div class="hac-name">Asareh Institute</div><div class="hac-role">Founder & Director</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
+        <a class="hero-affil-card" style="cursor:default;pointer-events:none;">
+          <span class="hac-icon">🇬🇧</span>
+          <div><div class="hac-name">Keele University</div><div class="hac-role">Affiliated Researcher</div></div>
+        </a>
+        <a class="hero-affil-card" style="cursor:default;pointer-events:none;">
+          <span class="hac-icon">🎓</span>
+          <div><div class="hac-name">Univ. of Zanjan</div><div class="hac-role">PhD Candidate</div></div>
+        </a>
+        <a class="hero-affil-card hac-book" href="#contact">
+          <span class="hac-icon">📖</span>
+          <div><div class="hac-name">Astronomy for Us</div><div class="hac-role">نجوم برای ما · 2020</div></div>
+          <span class="hac-arrow">→</span>
+        </a>
       </div>
     </div>
     <div class="hero-card">
@@ -495,7 +590,7 @@
       <div class="affil-item">
         <div class="affil-dot"></div>
         <div>
-          <div class="affil-inst">Keele University</div>
+          <div class="affil-inst">Keele University, UK</div>
           <div class="affil-role">Affiliated Researcher</div>
         </div>
       </div>
@@ -546,7 +641,7 @@
         <div class="talk-year">Nov 2025</div>
         <div>
           <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
-          <div class="talk-venue">MYRAM 7 Conference · Amman, Jordan</div>
+          <div class="talk-venue">7th Middle-East & Africa Regional IAU Meeting (MEARIM 7) · Amman, Jordan</div>
         </div>
         <div class="talk-type">Talk</div>
       </div>
@@ -555,7 +650,7 @@
         <div class="talk-year">Sep 2025</div>
         <div>
           <div class="talk-title">LPVs and Dust in M33: Multi-Epoch NIR Photometry</div>
-          <div class="talk-venue">BAO International Symposium (BAO-80) · Byurakan, Armenia</div>
+          <div class="talk-venue">International Symposium ASBD-3 · Byurakan Astrophysical Observatory, Armenia</div>
         </div>
         <div class="talk-type">Talk</div>
       </div>
@@ -563,8 +658,17 @@
       <div class="talk-item">
         <div class="talk-year">Sep 2025</div>
         <div>
-          <div class="talk-title">Near-Infrared Variable Star Survey of M33</div>
-          <div class="talk-venue">10th Byurakan International Summer School (10BISS) · Armenia</div>
+          <div class="talk-title">4th Byurakan Regional Astronomical Summer School (4RASS)</div>
+          <div class="talk-venue">Byurakan Astrophysical Observatory, Armenia — LOC Member</div>
+        </div>
+        <div class="talk-type">LOC</div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">Sep 2024</div>
+        <div>
+          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
+          <div class="talk-venue">9th Byurakan International Summer School (9BISS) · Armenia</div>
         </div>
         <div class="talk-type">Talk</div>
       </div>
@@ -572,10 +676,10 @@
       <div class="talk-item">
         <div class="talk-year">Sep 2024</div>
         <div>
-          <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region: Unveiling Final-Stage Evolution Through Near-Infrared Survey</div>
-          <div class="talk-venue">9th Byurakan International Summer School (9BISS) · Armenia</div>
+          <div class="talk-title">IAU SWCA ROAD International Workshop</div>
+          <div class="talk-venue">Byurakan Astrophysical Observatory, Armenia</div>
         </div>
-        <div class="talk-type">Talk</div>
+        <div class="talk-type">Participant</div>
       </div>
 
       <div class="talk-item">
@@ -590,7 +694,7 @@
       <div class="talk-item">
         <div class="talk-year">Jul 2024</div>
         <div>
-          <div class="talk-title">M33 Central Region: Near-Infrared Observations and Analysis</div>
+          <div class="talk-title">Near-Infrared Variable Star Survey of M33</div>
           <div class="talk-venue">EAS Annual Meeting 2024 · Padova, Italy (Virtual)</div>
         </div>
         <div class="talk-type">Talk</div>
@@ -600,13 +704,13 @@
         <div class="talk-year">May 2024</div>
         <div>
           <div class="talk-title">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
-          <div class="talk-venue">31st IPM Physics Spring Conference · Tehran, Iran</div>
+          <div class="talk-venue">31st IPM Physics Spring Conference · Tehran, Iran — LOC Member</div>
         </div>
         <div class="talk-type">Poster</div>
       </div>
 
       <div class="talk-item">
-        <div class="talk-year">2015</div>
+        <div class="talk-year">Oct 2015</div>
         <div>
           <div class="talk-title">Star Formation in M31</div>
           <div class="talk-venue">STEEL PhD School · Erice, Italy</div>
@@ -629,7 +733,7 @@
         <div class="edu-degree">PhD in Astrophysics</div>
         <div class="edu-inst">University of Zanjan & Institute for Research in Fundamental Sciences (IPM), Tehran, Iran · Affiliated with Keele University, UK</div>
         <div class="edu-thesis">Comprehensive Compilation of Stellar Data in M33's Central Region</div>
-        <div class="edu-supervisors">Supervisors: Prof. Jacco van Loon (Keele) · Dr. Atefeh Javadi (IPM) · Dr. Y. A. Abedini (Zanjan)</div>
+        <div class="edu-supervisors">Supervisors: Prof. Jacco van Loon (Keele) · Dr. Atefeh Javadi (IPM) · Dr. Y. A. Abedini (Zanjan) · Advisor: Dr. H. Abdollahi</div>
       </div>
       <div class="edu-year">2021 – present</div>
     </div>
@@ -785,6 +889,35 @@
           I am open to collaborations in observational astronomy, particularly on variable star populations, NIR photometry pipelines, and AGB evolution in nearby galaxies. I am also available for invited talks, summer school lectures, and educational outreach.
         </p>
       </div>
+    </div>
+
+    <!-- SELECTED PUBLICATIONS -->
+    <div style="margin-top:3rem;">
+      <p class="section-label" style="margin-bottom:1.2rem;">Selected Publications</p>
+
+      <div style="display:flex;flex-direction:column;gap:0.8rem;">
+        <div style="background:#fff;border:1px solid var(--rule);padding:1rem 1.3rem;border-left:3px solid var(--gold);">
+          <div style="font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#9a7a3a;margin-bottom:0.3rem;">In Preparation · MNRAS</div>
+          <div style="font-size:0.88rem;color:var(--ink);margin-bottom:0.2rem;">The UKIRT M33 Monitoring Project — Paper VII: LPV Catalogue</div>
+          <div style="font-size:0.78rem;color:var(--muted);">Alizadeh M., Javadi A., van Loon J. T., et al.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--rule);padding:1rem 1.3rem;border-left:3px solid #6aaa8a;">
+          <div style="font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#4a8a6a;margin-bottom:0.3rem;">Published · ComBAO 2025</div>
+          <div style="font-size:0.88rem;color:var(--ink);margin-bottom:0.2rem;">Unveiling Long-Period Variables in M33's Central Region: Insights into Stellar Evolution and Star Formation via Near-Infrared Photometry</div>
+          <div style="font-size:0.78rem;color:var(--muted);">Alizadeh M., Abedini Y., Abdollahi H.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--rule);padding:1rem 1.3rem;border-left:3px solid #6aaa8a;">
+          <div style="font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#4a8a6a;margin-bottom:0.3rem;">Published · ComBAO 2024</div>
+          <div style="font-size:0.88rem;color:var(--ink);margin-bottom:0.2rem;">A Deep Dive into Stellar Populations in M33's Central Region: Near-Infrared Observations and Analysis</div>
+          <div style="font-size:0.78rem;color:var(--muted);">Alizadeh M., Javadi A., van Loon J. T., et al.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--rule);padding:1rem 1.3rem;border-left:3px solid #6aaa8a;">
+          <div style="font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:#4a8a6a;margin-bottom:0.3rem;">Published · The Astrophysical Journal 2021</div>
+          <div style="font-size:0.88rem;color:var(--ink);margin-bottom:0.2rem;">INT Survey of Local Group Dwarfs III: SFH of Andromeda VII from LPV Stars</div>
+          <div style="font-size:0.78rem;color:var(--muted);">Javadi A., Alizadeh M., van Loon J. T., et al. · <a href="https://arxiv.org/abs/2101.09900" target="_blank" style="color:var(--gold)">arXiv →</a></div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.8rem;">Full list on <a href="https://www.researchgate.net/profile/Mina-Alizadeh-11" target="_blank" style="color:var(--gold)">ResearchGate</a> and <a href="https://scholar.google.com/citations?user=3xPO7TAAAAAJ" target="_blank" style="color:var(--gold)">Google Scholar</a></p>
     </div>
 
     <!-- BOOK -->
