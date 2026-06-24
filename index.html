@@ -20,7 +20,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -28,6 +28,7 @@
     background: var(--cream);
     font-size: 15px;
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   /* ── NAV ── */
@@ -71,6 +72,7 @@
     padding: 7rem 0 5rem;
     position: relative;
     overflow: hidden;
+    width: 100%;
   }
 
   /* starfield */
@@ -95,6 +97,8 @@
     grid-template-columns: 1fr 340px;
     gap: 6rem;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero-eyebrow {
@@ -102,7 +106,8 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    word-break: break-word;
   }
 
   .hero-name {
@@ -469,17 +474,24 @@
   .profile-arrow { margin-left: auto; color: var(--gold); font-size: 0.9rem; flex-shrink: 0; }
 
   @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; }
-    .nav-links { gap: 1rem; }
-    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 0.7rem; }
+    .nav-links a { font-size: 0.7rem; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 1.2rem;
+    }
     .hero-card { display: none; }
-    .hero-top { gap: 1.2rem; }
-    .hero-photo { width: 90px; height: 90px; }
-    .hero-name { white-space: normal; font-size: 1.8rem; }
-    .container { padding: 0 1.5rem; }
+    .hero-top { gap: 1rem; }
+    .hero-photo { width: 80px; height: 80px; }
+    .hero-name { white-space: normal; font-size: 1.6rem; }
+    .hero-title { font-size: 1rem; }
+    .hero-bio { font-size: 0.88rem; max-width: 100%; }
+    .hero-affil-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 1.2rem; }
     .research-grid { grid-template-columns: 1fr; }
-    .pub-item { grid-template-columns: 60px 1fr; }
-    .talk-item { grid-template-columns: 80px 1fr; }
+    .talk-item { grid-template-columns: 70px 1fr; }
     .talk-type { display: none; }
     .edu-item { grid-template-columns: 1fr; }
     .edu-year { text-align: left; }
@@ -487,6 +499,7 @@
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .profiles-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-links { display: none; }
   }
 </style>
 </head>
